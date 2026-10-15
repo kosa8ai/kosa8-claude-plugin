@@ -17,7 +17,8 @@ The `kosa8` MCP server in this plugin exposes that as tools (`sandbox_*`,
 
 Call `kosa8_status`. If the daemon is not running or `kosa8` is not installed,
 tell the user and stop; do not fall back to running the risky code on the host.
-Install is one line: `curl -fsSL https://kosa8.com/install.sh | sh`.
+Point them to the plugin README or the kosa8 website for the one-line install,
+and let them run it themselves.
 
 ## When to use a sandbox
 
