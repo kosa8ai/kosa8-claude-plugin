@@ -10,10 +10,11 @@ Do this task inside a kosa8 sandbox, not on the host: $ARGUMENTS
 2. Create a sandbox with `sandbox_create` (a short, descriptive name). Share
    host folders only if the user allowed them when the server started; if a
    share is refused, tell the user which directory to allow.
-3. If the task needs network access to an API, ask the user to create the
-   sandbox from their terminal with an allow-list instead, for example
-   `kosa8 sandbox create sealed --egress-allow api.example.com`, and wait.
-   Never put a real API key into the sandbox or a tool argument.
+3. Sandboxes start with the network closed. If the task needs to reach an
+   outside service, stop and ask the user to create the sandbox from their own
+   terminal with `kosa8 sandbox create <name> --egress-allow <hostname>`,
+   then continue in that sandbox. Never put a secret into the sandbox or a
+   tool argument.
 4. Call `sandbox_checkpoint` with a label before any step that would be hard to
    undo.
 5. Run the work with `sandbox_pull` and `sandbox_run`. If a step goes wrong,
