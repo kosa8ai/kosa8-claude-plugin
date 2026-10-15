@@ -1,0 +1,17 @@
+{
+  "name": "kosa8",
+  "description": "The kosa8 plugin for Claude Code: sealed microVM sandboxes for AI agents.",
+  "owner": {
+    "name": "kosa8",
+    "email": "contact@kosa8.com"
+  },
+  "plugins": [
+    {
+      "name": "kosa8",
+      "source": "./",
+      "description": "Run untrusted or agent-written code in a sealed microVM: checkpoint, rewind, fork, and keep API keys on the host.",
+      "category": "security",
+      "homepage": "https://kosa8.com"
+    }
+  ]
+}

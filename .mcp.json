@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "kosa8": {
+      "command": "kosa8",
+      "args": ["mcp", "serve"]
+    }
+  }
+}
