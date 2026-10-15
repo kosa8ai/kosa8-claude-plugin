@@ -1,0 +1,11 @@
+#!/bin/sh
+# Launcher for the kosa8 MCP server. It runs the kosa8 binary already
+# installed on this machine; it does not download or install anything.
+# kosa8 is installed separately: see https://kosa8.com
+for k in "$(command -v kosa8 2>/dev/null)" /usr/local/bin/kosa8 /opt/homebrew/bin/kosa8; do
+  if [ -n "$k" ] && [ -x "$k" ]; then
+    exec "$k" mcp serve "$@"
+  fi
+done
+echo "kosa8 is not installed. Install it from https://kosa8.com, then restart this app." >&2
+exit 1
