@@ -26,7 +26,7 @@ With the plugin enabled, Claude can:
 The plugin has four parts:
 
 - **An MCP server** (`.mcp.json`) that starts `kosa8 mcp serve` through
-  `bin/kosa8-mcp` as a local stdio process.
+  `scripts/kosa8-mcp` as a local stdio process.
 - **A skill** (`skills/kosa8-sandbox`) that tells Claude when to reach for a
   sandbox and how to use checkpoints, rewind, fork, egress allow-lists and
   approvals safely.
@@ -133,7 +133,7 @@ Run `kosa8 mcp tools` to see the list for your installed version.
 
 ## What this plugin runs
 
-The plugin's only executable is `bin/kosa8-mcp`, a short shell script that
+The plugin's only executable is `scripts/kosa8-mcp`, a short shell script that
 finds the kosa8 already installed on your machine and runs `kosa8 mcp serve`.
 It downloads and installs nothing. The plugin itself sends no data anywhere,
 contacts no server and reads no credentials.
@@ -145,7 +145,7 @@ The same server is listed in the
 `io.github.kosa8ai/kosa8` (see `server.json`). It is distributed as an MCP
 bundle, `kosa8-mcp.mcpb`, attached to each
 [GitHub release](https://github.com/kosa8ai/kosa8-claude-plugin/releases): a
-manifest and the same short launcher as `bin/kosa8-mcp`. It does not download
+manifest and the same short launcher as `scripts/kosa8-mcp`. It does not download
 or install anything, so install kosa8 first.
 
 Any MCP client that can start a stdio server can also run `kosa8 mcp serve`
