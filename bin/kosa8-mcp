@@ -1,0 +1,12 @@
+#!/bin/sh
+# Starts the kosa8 MCP server from the kosa8 already installed on this machine.
+# It downloads nothing, installs nothing and reads no credentials.
+# Apps started outside a terminal may not have Homebrew on PATH, so the usual
+# install locations are checked after PATH.
+for k in "$(command -v kosa8 2>/dev/null)" /opt/homebrew/bin/kosa8 /usr/local/bin/kosa8; do
+  if [ -n "$k" ] && [ -x "$k" ]; then
+    exec "$k" mcp serve
+  fi
+done
+echo "kosa8 is not installed. See https://kosa8.com/download/ and restart Claude Code." >&2
+exit 1

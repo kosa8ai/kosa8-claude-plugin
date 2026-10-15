@@ -1,7 +1,6 @@
 {
   "name": "kosa8",
-  "displayName": "kosa8",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Run untrusted or agent-written code in a sealed microVM with kosa8: checkpoint before risky steps, rewind in about a second, fork to try variants, keep API keys on the host.",
   "author": {
     "name": "kosa8",
@@ -11,9 +10,18 @@
   "homepage": "https://kosa8.com",
   "repository": "https://github.com/kosa8ai/kosa8-claude-plugin",
   "license": "MIT",
-  "keywords": ["sandbox", "microvm", "security", "mcp", "agents", "checkpoint", "isolation"],
+  "keywords": [
+    "sandbox",
+    "microvm",
+    "security",
+    "mcp",
+    "agents",
+    "checkpoint",
+    "isolation"
+  ],
   "icon": "./logo.png",
   "documentationUrl": "https://github.com/kosa8ai/kosa8-claude-plugin#readme",
   "supportUrl": "https://github.com/kosa8ai/kosa8-claude-plugin/issues",
-  "privacyPolicyUrl": "https://kosa8.com/privacy/"
+  "privacyPolicyUrl": "https://kosa8.com/privacy/",
+  "termsOfServiceUrl": "https://github.com/AzmxAI/kosa8-releases/blob/main/LICENSE"
 }

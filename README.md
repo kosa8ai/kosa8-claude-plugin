@@ -23,25 +23,26 @@ With the plugin enabled, Claude can:
 - wait for one or two named human approvers on risky actions (the two-person
   rule), with every action written to a hash-chained, tamper-evident audit log.
 
-The plugin has two parts:
+The plugin has four parts:
 
-- **An MCP server** (`.mcp.json`) that starts `kosa8 mcp serve`, the kosa8 MCP
-  server, as a local stdio process.
+- **An MCP server** (`.mcp.json`) that starts `kosa8 mcp serve` through
+  `bin/kosa8-mcp` as a local stdio process.
 - **A skill** (`skills/kosa8-sandbox`) that tells Claude when to reach for a
   sandbox and how to use checkpoints, rewind, fork, egress allow-lists and
   approvals safely.
+- **Commands:** `/kosa8:status`, `/kosa8:sandbox <task>`, `/kosa8:checkpoint`,
+  `/kosa8:rewind` (asks before rewinding) and `/kosa8:explore` (try several
+  commands in parallel forks).
+- **Agents:** `sandbox-runner` runs untrusted or generated code in a sealed
+  microVM and reports what it did; `fork-explorer` compares approaches in
+  parallel forks of one running sandbox.
 
 ## Prerequisites
 
 - Claude Code.
 - kosa8 installed on the same machine, with `kosa8` on your `PATH`. kosa8 runs
   on Apple-chip Macs and x86-64 Linux, and on Windows through WSL2 (preview).
-  Install it with one line:
-
-  ```sh
-  curl -fsSL https://kosa8.com/install.sh | sh
-  ```
-
+  Install it from [kosa8.com/download](https://kosa8.com/download/).
   Releases are signed and notarised. Check the install with `kosa8 version`.
 
 ## Install
@@ -132,10 +133,10 @@ Run `kosa8 mcp tools` to see the list for your installed version.
 
 ## What this plugin runs
 
-The Claude Code plugin contains no executable code of its own. It runs exactly one
-command, `kosa8 mcp serve`, which must already be installed on your machine.
-The plugin itself sends no data anywhere and contacts no server. It does not
-read any credential from your environment.
+The plugin's only executable is `bin/kosa8-mcp`, a short shell script that
+finds the kosa8 already installed on your machine and runs `kosa8 mcp serve`.
+It downloads and installs nothing. The plugin itself sends no data anywhere,
+contacts no server and reads no credentials.
 
 ## Other MCP clients
 
@@ -143,10 +144,9 @@ The same server is listed in the
 [official MCP Registry](https://registry.modelcontextprotocol.io) as
 `io.github.kosa8ai/kosa8` (see `server.json`). It is distributed as an MCP
 bundle, `kosa8-mcp.mcpb`, attached to each
-[GitHub release](https://github.com/kosa8ai/kosa8-claude-plugin/releases). The
-bundle's source is in `mcpb/`: a manifest and a short launcher script that runs
-`kosa8 mcp serve` from the kosa8 already installed on your machine. It does not
-download or install anything, so install kosa8 first.
+[GitHub release](https://github.com/kosa8ai/kosa8-claude-plugin/releases): a
+manifest and the same short launcher as `bin/kosa8-mcp`. It does not download
+or install anything, so install kosa8 first.
 
 Any MCP client that can start a stdio server can also run `kosa8 mcp serve`
 directly.

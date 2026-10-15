@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "kosa8": {
-      "command": "kosa8",
-      "args": ["mcp", "serve"]
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/kosa8-mcp",
+      "args": []
     }
   }
 }
