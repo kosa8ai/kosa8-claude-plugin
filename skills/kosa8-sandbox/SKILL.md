@@ -72,7 +72,7 @@ A checkpoint saves the whole running machine, memory and processes, in about
 - Before any step you could not undo, call `sandbox_checkpoint` with a `label`
   saying why (for example "before dropping the users table").
 - If the step goes wrong, call `sandbox_rewind`. It defaults to the most recent
-  checkpoint; pass `to` with an id or label for an earlier one.
+  checkpoint; set its `to` field to an id or label for an earlier one.
   `sandbox_checkpoint_list` shows what is available.
 - Rewinding is almost always cheaper than repairing the damage. Checkpoints
   taken after the one you return to are discarded, and the current state is
@@ -97,7 +97,7 @@ the refusal says how a human gets it. Tell the user what you were trying to do
 and why, and wait. A person reviews held calls at their own terminal
 (`kosa8 mcp asks`, then `kosa8 mcp approve ID` or `kosa8 mcp refuse ID`), or
 signs a request with `kosa8 approve sign`. Once approved, repeat the same call,
-passing the approval id in `approval` when the refusal asked for one.
+including the approval id in the `approval` field when the refusal asked for one.
 
 Never try to approve your own call, edit kosa8 policy, or switch to running the
 action on the host to avoid an approval.
