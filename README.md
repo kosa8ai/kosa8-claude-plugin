@@ -44,6 +44,33 @@ The plugin has four parts:
   on Apple-chip Macs and x86-64 Linux, and on Windows through WSL2 (preview).
   Install it from [kosa8.com/download](https://kosa8.com/download/).
   Releases are signed and notarised. Check the install with `kosa8 version`.
+- The kosa8 daemon running. The plugin is a thin launcher: the sandboxes are
+  microVMs run by `kosa8d` on your machine, so nothing works until it is up.
+
+### Before you start: install kosa8 and start the daemon
+
+The plugin does not install kosa8 and cannot run without it. On a new
+machine:
+
+```sh
+# 1. Install kosa8 (macOS on Apple silicon, x86-64 Linux, or WSL2)
+#    from https://kosa8.com/download/, then check it:
+kosa8 version
+
+# 2. Start the daemon that runs the microVMs:
+kosa8 daemon start
+
+# 3. Confirm both halves are up:
+kosa8 version          # prints "kosa8 daemon <version> (up Ns)"
+kosa8 mcp tools        # lists the tools this plugin exposes
+```
+
+If `kosa8 version` reports `kosa8 daemon: not running`, run
+`kosa8 daemon start` again. The MCP server starts without the daemon, but
+every sandbox tool then answers `cannot reach kosa8d`.
+
+Agents installing this server for a user can follow
+[llms-install.md](llms-install.md).
 
 ## Install
 
@@ -140,7 +167,7 @@ contacts no server and reads no credentials.
 
 ## Other MCP clients
 
-The same server is listed in the
+The same server is published to the
 [official MCP Registry](https://registry.modelcontextprotocol.io) as
 `io.github.kosa8ai/kosa8` (see `server.json`). It is distributed as an MCP
 bundle, `kosa8-mcp.mcpb`, attached to each
@@ -178,5 +205,7 @@ See https://kosa8.com/pricing/.
 ## License
 
 The files in this repository are released under the [MIT License](LICENSE).
-The license covers the plugin files only, not the kosa8 software, which is
-distributed separately under its own terms.
+The license covers only the files in this repository (the Claude Code plugin:
+its manifest, marketplace file, MCP configuration, skill, commands, agents,
+launcher, README and logo). It does not cover the kosa8 software itself, which
+is commercial software distributed separately under its own terms.

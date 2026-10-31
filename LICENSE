@@ -2,11 +2,6 @@ MIT License
 
 Copyright (c) 2026 kosa8
 
-This license covers only the files in this repository (the Claude Code
-plugin: its manifest, marketplace file, MCP configuration, skill, README and
-logo). It does not cover the kosa8 software itself, which is commercial
-software distributed separately under its own terms.
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
