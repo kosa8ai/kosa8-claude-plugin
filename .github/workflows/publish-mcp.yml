@@ -1,0 +1,41 @@
+name: publish-mcp
+
+# Publishes server.json to the official MCP Registry as io.github.kosa8ai/kosa8.
+#
+# The io.github.kosa8ai/* namespace belongs to the organisation, and the
+# registry only lets an organisation owner publish there with a credential that
+# can read org roles. `mcp-publisher login github` from a laptop cannot; GitHub
+# Actions OIDC can, and needs no stored token.
+#
+# Run by hand after a release whose mcpb bundle server.json points at:
+#   gh workflow run publish-mcp.yml --repo kosa8ai/kosa8-claude-plugin
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    env:
+      MCP_PUBLISHER_VERSION: v1.8.7
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mcp-publisher
+        run: |
+          set -eu
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}/mcp-publisher_linux_amd64.tar.gz" \
+            | tar xz mcp-publisher
+          ./mcp-publisher --version
+
+      - name: Validate
+        run: ./mcp-publisher validate
+
+      - name: Publish
+        run: |
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish
