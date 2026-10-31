@@ -1,7 +1,7 @@
 {
   "name": "kosa8",
   "version": "0.2.0",
-  "description": "Run untrusted or agent-written code in a sealed microVM with kosa8: checkpoint before risky steps, rewind in about a second, fork to try variants, keep API keys on the host.",
+  "description": "Secure infrastructure for AI agents. Run untrusted or agent-written code in a sealed microVM with kosa8: checkpoint before risky steps, rewind in about a second, fork to try variants, keep API keys on the host.",
   "author": {
     "name": "kosa8",
     "email": "contact@kosa8.com",

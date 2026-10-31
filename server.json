@@ -2,9 +2,25 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.kosa8ai/kosa8",
   "title": "kosa8",
-  "description": "Sealed microVM sandboxes for AI agents: run untrusted code, checkpoint, rewind and fork.",
-  "version": "0.1.0",
+  "description": "Secure infrastructure for AI agents: sealed microVM sandboxes you can checkpoint, rewind and fork.",
+  "version": "0.1.1",
   "websiteUrl": "https://kosa8.com",
+  "icons": [
+    {
+      "src": "https://kosa8.com/assets/mark.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    },
+    {
+      "src": "https://raw.githubusercontent.com/kosa8ai/kosa8-claude-plugin/main/logo.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
   "repository": {
     "url": "https://github.com/kosa8ai/kosa8-claude-plugin",
     "source": "github"

@@ -2,6 +2,8 @@
 
 ![kosa8](logo.png)
 
+**[kosa8](https://kosa8.com): Secure infrastructure for AI agents.**
+
 Give Claude a sealed machine to work in. This plugin connects Claude Code to
 [kosa8](https://kosa8.com), secure infrastructure for AI agents: every agent
 gets its own sealed machine, a real microVM with its own kernel, not a
