@@ -180,6 +180,27 @@ or install anything, so install kosa8 first.
 Any MCP client that can start a stdio server can also run `kosa8 mcp serve`
 directly.
 
+### kosa8 Cloud (remote, nothing to install)
+
+To run sandboxes on kosa8 Cloud instead of your own machine, point any MCP
+client that speaks Streamable HTTP at the hosted server, with a kosa8 Cloud API
+key (make one at https://app.kosa8.com/app#keys):
+
+```json
+{
+  "mcpServers": {
+    "kosa8-cloud": {
+      "type": "streamableHttp",
+      "url": "https://api.kosa8.com/mcp",
+      "headers": { "Authorization": "Bearer k8c_live_..." }
+    }
+  }
+}
+```
+
+The server's public description, with every tool, is at
+https://api.kosa8.com/.well-known/mcp/server-card.json.
+
 ## Privacy
 
 The kosa8 MCP server runs locally and talks to the kosa8 daemon on the same
@@ -193,10 +214,10 @@ Full policy: https://kosa8.com/privacy/
 
 ## Pricing
 
-kosa8 is commercial software. The plugin files in this repository are free and
-MIT licensed, but kosa8 itself needs a licence: it comes with a free 14-day
-trial with every feature, no account and no card. Plans start at $29 a month.
-See https://kosa8.com/pricing/.
+kosa8 is commercial software with no free tier. The plugin files in this
+repository are free and MIT licensed, but using kosa8 needs an account on a
+plan: sign up, add a card and pick a plan. Plans start at $29 a month. See
+https://kosa8.com/pricing/.
 
 ## Support and contact
 
