@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.kosa8ai/kosa8",
   "title": "kosa8",
-  "description": "Secure infrastructure for AI agents: sealed microVM sandboxes you can checkpoint, rewind and fork.",
-  "version": "0.1.1",
+  "description": "Sealed microVM sandboxes for AI agents: run untrusted code locally or in kosa8 Cloud.",
+  "version": "0.1.2",
   "websiteUrl": "https://kosa8.com",
   "icons": [
     {
@@ -34,6 +34,20 @@
       "transport": {
         "type": "stdio"
       }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.kosa8.com/mcp",
+      "headers": [
+        {
+          "description": "kosa8 Cloud API key as 'Bearer k8c_live_...' (create one at https://app.kosa8.com)",
+          "isRequired": true,
+          "isSecret": true,
+          "name": "Authorization"
+        }
+      ]
     }
   ]
 }
