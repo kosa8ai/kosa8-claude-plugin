@@ -204,7 +204,7 @@ https://api.kosa8.com/.well-known/mcp/server-card.json.
 #### Your GitHub repos
 
 Once an admin connects GitHub to kosa8 Cloud (once, at
-https://app.kosa8.com/app#settings/github) and picks the repos kosa8 may use,
+https://app.kosa8.com/auth/github/connect) and picks the repos kosa8 may use,
 the hosted server can work on them:
 
 | Tool | What it does |
@@ -215,7 +215,7 @@ the hosted server can work on them:
 
 kosa8 makes a GitHub token for that one repo and that one operation, valid for
 at most an hour. The token never enters the sandbox, and every use is in the
-audit log. See https://docs.kosa8.com/guides/github-repos/.
+audit log. See https://docs.kosa8.com/guides/cloud-github/.
 
 ## Privacy
 
