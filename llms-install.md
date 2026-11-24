@@ -37,6 +37,12 @@ Never create the account or enter card details for the user.
    `sandbox_exec` and `sandbox_delete`. As a smoke test, create a sandbox, run
    `echo ok` in it, and delete it.
 
+If the user wants agents to work on their GitHub repos, an admin connects
+GitHub once at https://app.kosa8.com/app#settings/github. Then `github_repos`
+lists them, `sandbox_create` takes `repo` (`"owner/name"` or
+`"owner/name@ref"`), and `open_pull_request` sends the changes back as a pull
+request. No GitHub token is ever pasted or held by the sandbox.
+
 A 401 means the key is missing or wrong; a 402 means the account has no plan
 or hit a plan limit, and the error says what the user can do.
 

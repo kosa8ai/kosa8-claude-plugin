@@ -201,6 +201,22 @@ key (make one at https://app.kosa8.com/app#keys):
 The server's public description, with every tool, is at
 https://api.kosa8.com/.well-known/mcp/server-card.json.
 
+#### Your GitHub repos
+
+Once an admin connects GitHub to kosa8 Cloud (once, at
+https://app.kosa8.com/app#settings/github) and picks the repos kosa8 may use,
+the hosted server can work on them:
+
+| Tool | What it does |
+| --- | --- |
+| `github_repos` | List or search the repos your organization's GitHub connection can see |
+| `sandbox_create` with `repo` | Start a sandbox from a repo: `"owner/name"`, `"owner/name@ref"` or `{ "name", "ref", "path" }`, cloned into `/workspace/<name>` |
+| `open_pull_request` | Commit the sandbox's changes, push a branch and open a pull request (`sandbox_id`, optional `title`, `body`) |
+
+kosa8 makes a GitHub token for that one repo and that one operation, valid for
+at most an hour. The token never enters the sandbox, and every use is in the
+audit log. See https://docs.kosa8.com/guides/github-repos/.
+
 ## Privacy
 
 The kosa8 MCP server runs locally and talks to the kosa8 daemon on the same

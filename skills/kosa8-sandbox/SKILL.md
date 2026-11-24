@@ -89,6 +89,20 @@ A checkpoint saves the whole running machine, memory and processes, in about
   successful branch (unless `keep_all` is set). Do the shared setup in the
   parent first, so every branch starts from it.
 
+## Working on a GitHub repo (kosa8 Cloud)
+
+With the hosted kosa8 Cloud MCP server and GitHub connected to kosa8 Cloud,
+start from the user's repo instead of copying files in: find it with
+`github_repos`, then call `sandbox_create` with `repo` (`"owner/name"` or
+`"owner/name@branch"`); it is cloned into `/workspace/<name>`. Make and test the
+changes there, then call `open_pull_request` with the `sandbox_id` (and a
+`title` and `body` that say what changed and why). It opens a draft pull
+request for the user to review; never merge it yourself.
+
+Never ask for or paste a GitHub token: kosa8 uses a token for that one repo and
+operation, outside the sandbox. If a call says GitHub is not connected or a
+permission is missing, give the user the link from the error and wait.
+
 ## Approvals
 
 Risky actions can wait for one or two named human approvers (the two-person
